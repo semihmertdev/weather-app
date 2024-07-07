@@ -1,14 +1,14 @@
 /* Global styles */
 body {
     font-family: 'Arial', sans-serif;
-    color: #333;
+    color: #fff;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
     transition: background 0.5s ease-in-out;
     height: 100vh;
     overflow: hidden;
@@ -17,8 +17,7 @@ body {
 h1 {
     margin: 20px 0;
     font-size: 2.5rem;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 form {
@@ -34,31 +33,48 @@ form {
 }
 
 input[type="text"] {
-    padding: 10px;
+    padding: 8px;
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
     width: 100%;
     max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
 }
+
 
 #loading {
     font-size: 1.2rem;
-    color: #007bff;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.weather {
+    width: 300px;
+    height: 300px;
+    text-align: center;
 }
 
 #weatherDisplay {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 1200px;
     height: 500px;
@@ -77,16 +93,15 @@ input[type="text"] {
 .weather-detail {
     display: flex;
     flex-direction: column;
+    color: #fff;
 }
 
-.weather {
-    width: 300px;
-    height: 300px;
-    text-align: center;
-}
-
-.weather-detail i {
-    font-size: 40px;
+.weather-detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 75px;
 }
 
 .weather-condition {
@@ -103,7 +118,7 @@ input[type="text"] {
 .weather-date,
 .weather-time {
     font-size: 1rem;
-    color: #666;
+    color: #ddd;
     margin-bottom: 5px;
 }
 
@@ -111,10 +126,11 @@ input[type="text"] {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #ffdd57;
 }
 
 .weather-icon {
-    width: 65px;
+    width: 70px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -132,25 +148,20 @@ input[type="text"] {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding-left: 100px;
 }
 
 .icon {
     padding: 10px;
     font-size: 2rem;
-    color: rgb(54, 132, 250);
+    color: #ffdd57;
     width: 30px;
-}
-
-.weather-detail {
-    font-size: 1rem;
 }
 
 .forecast-container {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 70%;
+    width: 64%;
     height: 300px;
     margin: 20px 0;
     scroll-behavior: smooth;
@@ -159,25 +170,30 @@ input[type="text"] {
 #dailyForecast {
     display: flex;
     overflow: hidden;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 #hourlyForecast {
-    display: none;
+    display: flex;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 .forecast-item {
     min-width: 130px;
     height: 170px;
     text-align: center;
-    padding: 0 10px 15px 10px;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 0 10px 30px 10px;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    color: #fff;
 }
 
 .forecast-item h3 {
@@ -191,40 +207,47 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
-.forecast-item p {
-    margin: 5px 0;
-}
-
 .changeButtons {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    padding: 5px;
 }
 
 .changeButtons button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: black;
-    background-color: white;
+    color: #fff;
+    background-color: #28a745; 
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     border: none;
+    transition: background 0.3s ease;
 }
 
-.selected-button {
-    border: 7px solid #007bff;
+.changeButtons button:hover {
+    background-color: #218838;
+}
+
+.changeButtons .selected-button {
+    background-color: #218838;
 }
 
 .togglebutton {
     padding: 10px 20px;
     font-size: 1rem;
-    color: black;
-    background-color: white;
+    color: #fff;
+    background-color: #007bff;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     border: none;
+    transition: background 0.3s ease;
+}
+
+.togglebutton:hover {
+    background-color: #0056b3;
 }
 
 .day-temp {
@@ -237,6 +260,7 @@ input[type="text"] {
 .hour-temp {
     font-size: 1.8rem;
     font-weight: bold;
+    color: #ffdd57;
 }
 
 .min-temp {

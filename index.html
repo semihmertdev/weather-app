@@ -1,36 +1,40 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Weather Forecast</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://kit.fontawesome.com/d0ba23ef82.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <h1>Weather Forecast</h1>
-        <form id="locationForm">
-            <button class="togglebutton" type="button" id="toggleUnits">°C</button>
-            <input type="text" id="locationInput" placeholder="Enter location">
-            <button class="togglebutton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <div id="loading" style="display: none;">Loading...</div>
-        <div id="weatherDisplay">
-            <!-- Weather details will be displayed here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/d0ba23ef82.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <form id="locationForm">
+        <button class="togglebutton" type="button" id="toggleUnits">°C</button>
+        <input type="text" id="locationInput" placeholder="Enter location">
+        <button class="togglebutton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    <div id="loading" style="display: none;">Loading...</div>
+    <div id="weatherDisplay">
+        
+    </div>
+
+    <div class="changeButtons">
+        <button class="togglebutton2 selected-button" type="button" id="toggleDaily">Daily</button>
+        <button class="togglebutton2 unselected-button" type="button" id="toggleHourly">Hourly</button>
+    </div>
+
+    <div id="forecastContainer" class="forecast-container">
+        <div id="dailyForecast">
+
         </div>
 
-        <div class="changeButtons">
-            <button class="togglebutton2"  type="button" id="toggleDaily">Daily</button>
-            <button class="togglebutton2" type="button" id="toggleHourly">Hourly</button>
-        </div>
+        <div id="hourlyForecast" style="display: none;">
 
-        <div id="dailyForecast" class="forecast-container">
-            <!-- Daily forecast will be displayed here -->
         </div>
-        <div id="hourlyForecast" class="forecast-container" style="display: none;">
-            <!-- Hourly forecast will be displayed here -->
-        </div>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
-    </html>
+    <script src="script.js"></script>
+</body>
+</html>
